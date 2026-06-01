@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Confident Communicator — A Field Manual</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Spectral:ital,wght@0,400;0,500;1,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f1ece1;
+    --paper: #fbf8f1;
+    --ink: #191712;
+    --ink-soft: #4f4940;
+    --accent: #1f5d4c;       /* deep pine — calm authority */
+    --accent-deep: #143b30;
+    --ochre: #c2882c;        /* warm signal */
+    --rule: #d8cfbd;
+    --stop: #a23a2b;
+    --shadow: #191712;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    background-image:
+      radial-gradient(circle at 10% 8%, rgba(31,93,76,0.07), transparent 42%),
+      radial-gradient(circle at 92% 88%, rgba(194,136,44,0.10), transparent 46%);
+    color: var(--ink);
+    font-family: 'Spectral', Georgia, serif;
+    font-size: 19px;
+    line-height: 1.68;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  body::before {
+    content: "";
+    position: fixed; inset: 0;
+    pointer-events: none; z-index: 999; opacity: 0.35;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
+  }
+
+  .wrap { max-width: 760px; margin: 0 auto; padding: 0 30px 130px; }
+
+  /* HEADER */
+  header { padding: 88px 0 44px; }
+  .kicker {
+    font-family: 'Space Mono', monospace;
+    font-size: 12px; letter-spacing: 0.24em; text-transform: uppercase;
+    color: var(--accent);
+    display: inline-block; padding: 6px 13px;
+    border: 1.5px solid var(--accent); border-radius: 100px;
+    margin-bottom: 26px;
+    animation: rise .7s ease-out both;
+  }
+  h1 {
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-weight: 800; font-size: clamp(2.7rem, 8vw, 4.4rem);
+    line-height: 1.0; letter-spacing: -0.02em; margin-bottom: 22px;
+    animation: rise .7s ease-out .08s both;
+  }
+  h1 em { font-style: italic; color: var(--accent); }
+  .standfirst {
+    font-size: 1.28rem; color: var(--ink-soft); font-style: italic;
+    max-width: 42ch; animation: rise .7s ease-out .16s both;
+  }
+  .byline {
+    margin-top: 32px; font-family: 'Space Mono', monospace;
+    font-size: 12px; letter-spacing: .04em; color: var(--ink-soft);
+    display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
+    animation: rise .7s ease-out .24s both;
+  }
+  .byline .dot { width: 5px; height: 5px; background: var(--ochre); border-radius: 50%; }
+  .header-rule {
+    margin-top: 40px; height: 3px; background: var(--ink);
+    transform-origin: left; animation: wipe .9s ease-out .3s both;
+  }
+
+  @keyframes rise { from {opacity:0; transform:translateY(22px);} to {opacity:1; transform:translateY(0);} }
+  @keyframes wipe { from {transform:scaleX(0);} to {transform:scaleX(1);} }
+
+  /* THE ARC */
+  .arc {
+    margin: 40px 0 8px; padding: 26px;
+    background: var(--paper); border: 2px solid var(--ink);
+    border-radius: 16px; box-shadow: 6px 6px 0 var(--shadow);
+  }
+  .arc-label {
+    font-family: 'Space Mono', monospace; font-size: 11px;
+    letter-spacing: .2em; text-transform: uppercase; color: var(--accent);
+    margin-bottom: 16px;
+  }
+  .arc-track { display: flex; align-items: stretch; gap: 0; flex-wrap: wrap; }
+  .arc-step { flex: 1 1 0; min-width: 110px; text-align: center; position: relative; padding: 4px 6px; }
+  .arc-step .n {
+    font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800;
+    font-size: 1.6rem; color: var(--accent); line-height: 1;
+  }
+  .arc-step .t {
+    font-family: 'Bricolage Grotesque', sans-serif; font-weight: 700;
+    font-size: 1rem; margin-top: 4px;
+  }
+  .arc-step .d { font-size: .85rem; color: var(--ink-soft); margin-top: 2px; line-height: 1.35; }
+  .arc-step:not(:last-child)::after {
+    content: "→"; position: absolute; right: -7px; top: 6px;
+    color: var(--ochre); font-weight: 700;
+  }
+
+  /* BODY */
+  article p { margin-bottom: 20px; }
+  article p.lead::first-letter {
+    font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800;
+    font-size: 4.4rem; float: left; line-height: .78;
+    margin: 8px 14px 0 0; color: var(--accent);
+  }
+  strong { font-weight: 700; }
+  em.mark {
+    font-style: normal;
+    background: linear-gradient(transparent 56%, rgba(194,136,44,.45) 56%, rgba(194,136,44,.45) 92%, transparent 92%);
+    padding: 0 2px;
+  }
+
+  /* PHASE HEADERS */
+  .phase { margin-top: 70px; }
+  .phase-head { display: flex; align-items: baseline; gap: 16px; margin-bottom: 4px; }
+  .phase-num {
+    font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800;
+    font-size: clamp(2.6rem, 7vw, 3.6rem); color: var(--ochre); line-height: .9;
+  }
+  .phase h2 {
+    font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800;
+    font-size: clamp(1.6rem, 4.5vw, 2.2rem); letter-spacing: -0.015em; line-height: 1.05;
+  }
+  .verb {
+    font-family: 'Space Mono', monospace; font-size: 12px; letter-spacing: .2em;
+    text-transform: uppercase; color: var(--accent); display: block; margin-bottom: 2px;
+  }
+  .section-rule { width: 64px; height: 4px; background: var(--accent); margin: 18px 0 26px; }
+  .goal {
+    font-style: italic; font-size: 1.15rem; color: var(--ink);
+    border-left: 4px solid var(--ochre); padding-left: 16px; margin-bottom: 22px;
+  }
+
+  /* STOP / START */
+  .swap { margin: 24px 0; display: flex; flex-direction: column; gap: 10px; }
+  .swap-row {
+    display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 12px;
+    background: var(--paper); border: 1.5px solid var(--rule); border-radius: 12px;
+    padding: 14px 18px;
+  }
+  .swap-row .from { color: var(--stop); }
+  .swap-row .to { color: var(--accent-deep); font-weight: 500; }
+  .swap-row .from, .swap-row .to { font-size: .98rem; }
+  .swap-row .arrowmark { color: var(--ochre); font-family: 'Space Mono', monospace; font-weight: 700; }
+  .from .x, .to .check { font-family: 'Space Mono', monospace; margin-right: 6px; opacity: .7; }
+
+  /* DRILL / WARNING / MARKER cards */
+  .card { border-radius: 14px; padding: 22px 24px; margin: 22px 0; }
+  .card .label {
+    font-family: 'Space Mono', monospace; font-size: 11px;
+    letter-spacing: .18em; text-transform: uppercase; margin-bottom: 8px;
+  }
+  .card h4 { font-family: 'Bricolage Grotesque', sans-serif; font-weight: 700; font-size: 1.15rem; margin-bottom: 6px; }
+  .card p { margin-bottom: 0; font-size: 1.02rem; }
+
+  .drill { background: var(--paper); border: 2px solid var(--ink); box-shadow: 5px 5px 0 var(--accent); }
+  .drill .label { color: var(--accent); }
+
+  .warn { background: var(--accent-deep); color: #e7efe9; }
+  .warn .label { color: var(--ochre); }
+  .warn p { color: #cfe0d6; }
+
+  .marker {
+    background: linear-gradient(0deg, rgba(194,136,44,.12), rgba(194,136,44,.12));
+    border: 1.5px dashed var(--ochre);
+  }
+  .marker .label { color: var(--ochre); }
+
+  /* PULL QUOTE */
+  .pull {
+    font-family: 'Bricolage Grotesque', sans-serif; font-weight: 700; font-style: normal;
+    font-size: clamp(1.4rem, 4vw, 1.95rem); line-height: 1.25;
+    margin: 56px 0; padding-left: 26px; border-left: 6px solid var(--accent); color: var(--ink);
+  }
+
+  /* DELIVERY LAYER */
+  .delivery { background: var(--ink); color: #efe7d6; border-radius: 16px; padding: 32px 30px; margin: 48px 0; }
+  .delivery .label { font-family: 'Space Mono', monospace; font-size: 12px; letter-spacing: .18em; text-transform: uppercase; color: var(--ochre); margin-bottom: 10px; }
+  .delivery h3 { font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 1.6rem; margin-bottom: 14px; }
+  .delivery ul { list-style: none; }
+  .delivery li { padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,.1); font-size: 1.02rem; color: #ddd2bd; }
+  .delivery li:last-child { border-bottom: none; }
+  .delivery li b { color: #fff; font-family: 'Bricolage Grotesque', sans-serif; }
+
+  /* TIMELINE */
+  .timeline { list-style: none; margin: 26px 0; counter-reset: w; }
+  .timeline li {
+    counter-increment: w; padding: 18px 0 18px 70px; position: relative;
+    border-bottom: 1.5px dashed var(--rule);
+  }
+  .timeline li:last-child { border-bottom: none; }
+  .timeline li::before {
+    content: "P" counter(w); position: absolute; left: 0; top: 16px;
+    width: 50px; height: 38px; background: var(--accent); color: var(--paper);
+    font-family: 'Space Mono', monospace; font-weight: 700; border-radius: 8px;
+    display: flex; align-items: center; justify-content: center; font-size: .95rem;
+  }
+  .timeline li b { font-family: 'Bricolage Grotesque', sans-serif; font-weight: 700; font-size: 1.1rem; }
+  .timeline li span { color: var(--ink-soft); font-size: .92rem; font-family: 'Space Mono', monospace; }
+
+  /* FOOTER */
+  footer {
+    margin-top: 80px; padding-top: 28px; border-top: 3px solid var(--ink);
+    font-family: 'Space Mono', monospace; font-size: 12px; letter-spacing: .04em;
+    color: var(--ink-soft); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px;
+  }
+  footer .end { color: var(--accent); }
+
+  @media (max-width: 580px) {
+    body { font-size: 17.5px; }
+    .wrap { padding: 0 20px 80px; }
+    header { padding: 58px 0 36px; }
+    .swap-row { grid-template-columns: 1fr; gap: 6px; }
+    .swap-row .arrowmark { display: none; }
+    .arc-step:not(:last-child)::after { content: "↓"; right: auto; left: 50%; top: auto; bottom: -14px; }
+    .arc-step { min-width: 100%; padding: 10px 0; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <span class="kicker">Field Manual · Communication</span>
+    <h1>How to sound like someone whose <em>opinion is worth having</em></h1>
+    <p class="standfirst">Confidence isn't a set of memorized phrases. It's a system you build in layers — each one removing a ceiling on the next.</p>
+    <div class="byline">
+      <span>5 phases</span><span class="dot"></span>
+      <span>~10 weeks of reps</span><span class="dot"></span>
+      <span>Stack them in order</span>
+    </div>
+    <div class="header-rule"></div>
+
+    <div class="arc">
+      <div class="arc-label">The arc — don't skip ahead</div>
+      <div class="arc-track">
+        <div class="arc-step"><div class="n">1</div><div class="t">Subtract</div><div class="d">Stop leaking status</div></div>
+        <div class="arc-step"><div class="n">2</div><div class="t">Structure</div><div class="d">Be easy to follow</div></div>
+        <div class="arc-step"><div class="n">3</div><div class="t">Commit</div><div class="d">Speak in decisions</div></div>
+        <div class="arc-step"><div class="n">4</div><div class="t">Steer</div><div class="d">Direct the room</div></div>
+        <div class="arc-step"><div class="n">5</div><div class="t">Shape</div><div class="d">Frame the thinking</div></div>
+      </div>
+    </div>
+  </header>
+
+  <article>
+
+    <p class="lead">The reason most people don't sound confident isn't that they lack good ideas — it's that their delivery quietly undercuts them before the idea ever lands. The good news: this is fixable, and in a predictable order.</p>
+
+    <p>Treat what follows as a ladder, not a buffet. You can't sound like a trusted advisor while you're still opening every message with "sorry to bother you." Each phase makes the next one possible. Move up when the current one feels <em class="mark">automatic</em> — not when you've simply read it. Reps build this, not the calendar.</p>
+
+    <!-- PHASE 1 -->
+    <section class="phase">
+      <div class="phase-head">
+        <span class="phase-num">01</span>
+        <div><span class="verb">Subtract</span><h2>Stop leaking status</h2></div>
+      </div>
+      <div class="section-rule"></div>
+      <p class="goal">Goal: stop actively lowering your own standing before you've said anything of substance.</p>
+
+      <p>People register <strong>certainty before content</strong>. Hedging words — <em>just, sorry, I think maybe, does that make sense?</em> — signal that you don't fully trust your own message, so your listener doesn't either. The fastest gain in communication isn't adding polish. It's removing the leaks. There are two:</p>
+
+      <p><strong>1. Cut weak language</strong> — apology, permission-seeking, and over-qualifying.</p>
+      <div class="swap">
+        <div class="swap-row"><span class="from"><span class="x">✕</span>"Sorry to bother you."</span><span class="arrowmark">→</span><span class="to"><span class="check">✓</span>"Quick question."</span></div>
+        <div class="swap-row"><span class="from"><span class="x">✕</span>"Sorry for the follow-up."</span><span class="arrowmark">→</span><span class="to"><span class="check">✓</span>"Wanted to check where we stand."</span></div>
+        <div class="swap-row"><span class="from"><span class="x">✕</span>"I just wanted to ask…"</span><span class="arrowmark">→</span><span class="to"><span class="check">✓</span>"I'd like to discuss…"</span></div>
+        <div class="swap-row"><span class="from"><span class="x">✕</span>"This might be a stupid question."</span><span class="arrowmark">→</span><span class="to"><span class="check">✓</span>"Help me understand this."</span></div>
+        <div class="swap-row"><span class="from"><span class="x">✕</span>"I'm no expert, but…"</span><span class="arrowmark">→</span><span class="to"><span class="check">✓</span><em>(delete it — just state the point)</em></span></div>
+      </div>
+
+      <p><strong>2. Cut filler and let silence do the work.</strong> Replace <em>um, like, you know, kind of, sort of</em> with a clean two-second pause. A pause reads as control; filler reads as asking permission to keep talking.</p>
+
+      <div class="card warn">
+        <div class="label">⚠ Calibration</div>
+        <h4>Subtraction isn't coldness</h4>
+        <p>You're removing apology, not warmth. "Quick question" can still be followed by "thanks for the help." Swap reflexive <em>sorry</em> for a genuine <em>thank you</em> ("Thanks for waiting" beats "Sorry I'm late"). Don't overcorrect into blunt.</p>
+      </div>
+
+      <div class="card drill">
+        <div class="label">Drill</div>
+        <h4>The crutch audit</h4>
+        <p>Name your three most-used crutch words. For one week, catch each one as it happens. Record a 60-second voice memo daily answering any question, count your fillers, and aim to halve them by week's end.</p>
+      </div>
+
+      <div class="card marker">
+        <div class="label">You've got it when…</div>
+        <p>You can ask for something or follow up with zero softeners — and it feels normal, not rude.</p>
+      </div>
+    </section>
+
+    <!-- PHASE 2 -->
+    <section class="phase">
+      <div class="phase-head">
+        <span class="phase-num">02</span>
+        <div><span class="verb">Structure</span><h2>Become easy to follow</h2></div>
+      </div>
+      <div class="section-rule"></div>
+      <p class="goal">Goal: organize your thinking so people can track you without effort.</p>
+
+      <p>Competence is <em>inferred from structure</em>. The exact same idea sounds smarter delivered as a labeled, ordered argument than as a stream of consciousness — because you've done the listener's sorting for them. Two moves:</p>
+
+      <p><strong>1. Frame before you speak.</strong> Signpost where you're going so people can follow the map.</p>
+      <div class="swap">
+        <div class="swap-row"><span class="from"><span class="x">✕</span>"So I looked at the data and then there was this issue…"</span><span class="arrowmark">→</span><span class="to"><span class="check">✓</span>"There are two parts to this."</span></div>
+        <div class="swap-row"><span class="from"><span class="x">✕</span>(diving into detail)</span><span class="arrowmark">→</span><span class="to"><span class="check">✓</span>"Here's how I understand it…"</span></div>
+        <div class="swap-row"><span class="from"><span class="x">✕</span>(burying the point)</span><span class="arrowmark">→</span><span class="to"><span class="check">✓</span>"The main issue is…"</span></div>
+      </div>
+
+      <p><strong>2. Use the executive format:</strong> <em class="mark">Situation → Analysis → Recommendation.</em> It works in meetings, email, interviews, and status updates alike.</p>
+      <div class="swap">
+        <div class="swap-row"><span class="to" style="grid-column:1/-1"><b>Situation:</b> Sales declined 10%.</span></div>
+        <div class="swap-row"><span class="to" style="grid-column:1/-1"><b>Analysis:</b> Most of the drop came from existing customers, not lost leads.</span></div>
+        <div class="swap-row"><span class="to" style="grid-column:1/-1"><b>Recommendation:</b> Fix retention before spending more on acquisition.</span></div>
+      </div>
+      <p>A close cousin worth adopting: <strong>Bottom Line Up Front.</strong> Lead with your conclusion, then support it. Most people bury the point at the end — reverse it.</p>
+
+      <div class="card warn">
+        <div class="label">⚠ Calibration</div>
+        <h4>Don't over-scaffold</h4>
+        <p>"There are three parts to my coffee order" is robotic. Structure should scale with the stakes — heavy framing for a strategy call, none for small talk.</p>
+      </div>
+
+      <div class="card drill">
+        <div class="label">Drill</div>
+        <h4>One line first</h4>
+        <p>Before any meeting input, write a single line: <em>"The main point is ___."</em> Practice Situation → Analysis → Recommendation in writing on one real situation per day. End each explanation on the recommendation — never trail off into "…so yeah."</p>
+      </div>
+
+      <div class="card marker">
+        <div class="label">You've got it when…</div>
+        <p>People stop asking "wait, what's your actual point?" — and start repeating your framing back to you.</p>
+      </div>
+    </section>
+
+    <div class="pull">"Stop sounding like someone asking for approval. Start sounding like someone whose view is worth having."</div>
+
+    <!-- PHASE 3 -->
+    <section class="phase">
+      <div class="phase-head">
+        <span class="phase-num">03</span>
+        <div><span class="verb">Commit</span><h2>Speak in decisions, not possibilities</h2></div>
+      </div>
+      <div class="section-rule"></div>
+      <p class="goal">Goal: convert hedged options into clear, reasoned recommendations.</p>
+
+      <p>Anyone can list options. Value comes from a <strong>point of view</strong> — it gives the room something concrete to react to. Recommending is leadership behavior even when you hold no authority. Two moves:</p>
+
+      <p><strong>1. Recommend, don't float</strong> — and always attach the <em>because</em>.</p>
+      <div class="swap">
+        <div class="swap-row"><span class="from"><span class="x">✕</span>"Maybe we could try…"</span><span class="arrowmark">→</span><span class="to"><span class="check">✓</span>"My recommendation is…"</span></div>
+        <div class="swap-row"><span class="from"><span class="x">✕</span>"I guess we could…"</span><span class="arrowmark">→</span><span class="to"><span class="check">✓</span>"I suggest we… because…"</span></div>
+        <div class="swap-row"><span class="from"><span class="x">✕</span>"I don't mind, whatever works."</span><span class="arrowmark">→</span><span class="to"><span class="check">✓</span>"Here's where I'd lean — curious if you see it differently."</span></div>
+      </div>
+
+      <p><strong>2. Steady declaratives.</strong> Reach for the patterns leaders lean on: "Here's what I'm seeing." · "Here's what I recommend." · "The key issue is…" · "The data suggests…" · "What outcome are we aiming for?"</p>
+
+      <div class="card warn">
+        <div class="label">⚠ Calibration</div>
+        <h4>Conviction isn't rigidity</h4>
+        <p>The strongest version is "Here's my recommendation — and here's what would change my mind." Commit to a view; hold it loosely. Recommending confidently on things you genuinely don't know erodes trust, so match your confidence to your evidence.</p>
+      </div>
+
+      <div class="card drill">
+        <div class="label">Drill</div>
+        <h4>Force a preference</h4>
+        <p>End every discussion this phase with one recommendation plus one reason. When tempted to say "whatever works," make yourself state a preference. Notice how rarely anyone objects — people are relieved someone decided.</p>
+      </div>
+
+      <div class="card marker">
+        <div class="label">You've got it when…</div>
+        <p>People start asking <em>you</em> "what do you think we should do?" — because they've learned you'll have an answer.</p>
+      </div>
+    </section>
+
+    <!-- PHASE 4 -->
+    <section class="phase">
+      <div class="phase-head">
+        <span class="phase-num">04</span>
+        <div><span class="verb">Steer</span><h2>Direct the conversation</h2></div>
+      </div>
+      <div class="section-rule"></div>
+      <p class="goal">Goal: move from answering questions to guiding them — through curiosity, composure, and agreement-first influence.</p>
+
+      <p>The person asking the questions controls the frame. The person who stays calm when challenged keeps authority. The person who makes others feel heard gets heard. Three moves:</p>
+
+      <p><strong>1. Strategic curiosity.</strong> Ask questions that move things forward: "What's the biggest obstacle right now?" · "What would success look like?" · "What are we optimizing for?" · "What's driving that decision?" · "Walk me through your thinking." These reframe you from task-taker to thinker.</p>
+
+      <p><strong>2. Control under challenge.</strong> Disagree without friction.</p>
+      <div class="swap">
+        <div class="swap-row"><span class="from"><span class="x">✕</span>"No, that's wrong."</span><span class="arrowmark">→</span><span class="to"><span class="check">✓</span>"I see it differently."</span></div>
+        <div class="swap-row"><span class="from"><span class="x">✕</span>"You misunderstood."</span><span class="arrowmark">→</span><span class="to"><span class="check">✓</span>"Let me clarify my thinking."</span></div>
+      </div>
+      <p>Lower the volume, slow the pace. Composure <em>is</em> the signal.</p>
+
+      <p><strong>3. Influence by agreeing first.</strong> "That's a fair point." · "I agree with part of that." · "Building on your idea…" · "There's merit in that approach." Then add your view. People open up after they feel heard.</p>
+
+      <div class="card warn">
+        <div class="label">⚠ Calibration</div>
+        <h4>Guiding, not interrogating</h4>
+        <p>Strategic curiosity opens a conversation up; rapid-fire "why? why? why?" corners people. And agreeing-first only works if it's genuine — manufactured validation is transparent and costs you trust fast.</p>
+      </div>
+
+      <div class="card drill">
+        <div class="label">Drill</div>
+        <h4>Ask before you answer</h4>
+        <p>Once a day, ask a "success / obstacle / optimizing-for" question <em>before</em> offering a solution. The next time you disagree, open with a real point of agreement before your counter. When challenged, take the two-second pause instead of defending instantly.</p>
+      </div>
+
+      <div class="card marker">
+        <div class="label">You've got it when…</div>
+        <p>Tense conversations cool down around you instead of escalating — and people seek out your read on problems.</p>
+      </div>
+    </section>
+
+    <!-- PHASE 5 -->
+    <section class="phase">
+      <div class="phase-head">
+        <span class="phase-num">05</span>
+        <div><span class="verb">Shape</span><h2>The trusted-advisor level</h2></div>
+      </div>
+      <div class="section-rule"></div>
+      <p class="goal">Goal: stop merely communicating information — start shaping how people think about the decision.</p>
+
+      <p>At the top, you're no longer delivering data; you're <em class="mark">framing choices</em>. You name patterns, surface risks and opportunities, and make the cost of inaction visible. The signature patterns:</p>
+
+      <div class="swap">
+        <div class="swap-row"><span class="to" style="grid-column:1/-1"><span class="check">✓</span>"The pattern I'm noticing is…"</span></div>
+        <div class="swap-row"><span class="to" style="grid-column:1/-1"><span class="check">✓</span>"The risk I see is…" / "The opportunity is…"</span></div>
+        <div class="swap-row"><span class="to" style="grid-column:1/-1"><span class="check">✓</span>"If we do nothing, here's what happens."</span></div>
+        <div class="swap-row"><span class="to" style="grid-column:1/-1"><span class="check">✓</span>"If this were my decision, I would…"</span></div>
+        <div class="swap-row"><span class="to" style="grid-column:1/-1"><span class="check">✓</span>"Let's focus on what we can control."</span></div>
+      </div>
+
+      <p>What changes here is your <strong>altitude</strong>. You operate one level up — from the task to the decision behind it — and you translate detail into stakes. You don't report that the server is slow; you frame what that costs the customer and what you'd do about it.</p>
+
+      <div class="card warn">
+        <div class="label">⚠ Calibration</div>
+        <h4>This is earned, not borrowed</h4>
+        <p>Advisor language from someone who still hedges and rambles sounds like a fraud — it only works stacked on the four phases below it. And "if this were my decision, I would…" deliberately respects that it <em>isn't</em> your decision: it offers a view without grabbing authority you don't hold.</p>
+      </div>
+
+      <div class="card drill">
+        <div class="label">Drill</div>
+        <h4>The advisor brief</h4>
+        <p>Once a week, take one real situation and write five lines: the pattern, the risk, the opportunity, the cost of doing nothing, and your recommendation. Separately, practice turning one technical detail into one human or business stake.</p>
+      </div>
+
+      <div class="card marker">
+        <div class="label">You've got it when…</div>
+        <p>People bring you problems <em>before</em> they've decided what to do — and your framing becomes how the whole group talks about it.</p>
+      </div>
+    </section>
+
+    <!-- DELIVERY LAYER -->
+    <div class="delivery">
+      <div class="label">Runs through every phase</div>
+      <h3>The delivery layer</h3>
+      <p style="color:#cfc4af; margin-bottom:16px;">The words are only half of it. These cut across all five phases:</p>
+      <ul>
+        <li><b>Pace.</b> Slow down slightly. Rushing reads as anxiety; an unhurried pace reads as ownership.</li>
+        <li><b>Pauses.</b> Land a beat before and after your key point. Silence frames importance better than emphasis.</li>
+        <li><b>Tone.</b> End statements going <em>down</em>, not up. Uptalk quietly turns your assertions into questions.</li>
+        <li><b>Writing.</b> Same rules apply: bottom line up front, no apology openings, the recommendation at the end.</li>
+      </ul>
+    </div>
+
+    <!-- TIMELINE -->
+    <h2 style="font-family:'Bricolage Grotesque',sans-serif; font-weight:800; font-size:clamp(1.6rem,4.5vw,2.2rem); margin-top:64px;">A ten-week build</h2>
+    <div class="section-rule"></div>
+    <p>Two weeks per phase, fifteen focused minutes a day. It's reps, not the calendar — slide the dates, keep the order.</p>
+    <ul class="timeline">
+      <li><b>Subtract</b> <span>· wk 1–2</span><br>Hunt and replace weak phrases and fillers. Swap reflexive "sorry" for "thank you" or "quick question."</li>
+      <li><b>Structure</b> <span>· wk 3–4</span><br>Open with framing — "there are three things…", "the key point is…". Drill Situation → Analysis → Recommendation daily.</li>
+      <li><b>Commit</b> <span>· wk 5–6</span><br>End every discussion with "my recommendation is…" or "the next step should be…", plus the reason.</li>
+      <li><b>Steer</b> <span>· wk 7–8</span><br>Lead with a question; disagree with "I see it differently"; agree first, then add your view.</li>
+      <li><b>Shape</b> <span>· wk 9–10</span><br>Write a weekly advisor brief: pattern, risk, opportunity, cost of inaction, recommendation.</li>
+    </ul>
+
+    <p>After a few weeks of this, people tend to notice something they can't quite name: you've stopped sounding like someone asking for approval, and started sounding like someone whose opinion is worth having. None of it is about volume. It's about removing what undercut you, then building — in order — what carries weight.</p>
+
+    <footer>
+      <span>End of the manual</span>
+      <span class="end">■ ■ ■</span>
+    </footer>
+
+  </article>
+</div>
+</body>
+</html>
